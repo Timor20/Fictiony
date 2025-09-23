@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-function ThemeInput({onSubmit}) {
+type Theme = {
+    onSubmit: any
+}
+
+function ThemeInput({onSubmit}: Theme) {
     const [theme, setTheme] = useState("");
     const [error, setError] = useState("");
 

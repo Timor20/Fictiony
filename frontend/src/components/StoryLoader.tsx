@@ -10,13 +10,13 @@ function StoryLoader() {
     const navigate = useNavigate();
     const [story, setStory] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         loadStory(id)
     }, [id] )
 
-    const loadStory = async (storyId) => {
+    const loadStory = async (storyId: string | undefined) => {
         setLoading(true);
         setError(null);
 
@@ -24,7 +24,7 @@ function StoryLoader() {
             const response = await axios.get(`${API_BASE_URL}/stories/${storyId}/complete`);
             setStory(response.data);
             setLoading(false);
-        } catch (err) {
+        } catch (err: any) {
             if (err.response?.status === 404) {
                 setError("Story is not found.");
             } else {

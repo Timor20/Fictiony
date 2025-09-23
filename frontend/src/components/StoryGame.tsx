@@ -1,9 +1,36 @@
 import {useState, useEffect} from 'react';
 
-function StoryGame({story, onNewStory}) {
-    const [currentNodeId, setCurrentNodeId] = useState(null);
-    const [currentNode, setCurrentNode] = useState(null);
-    const [options, setOptions] = useState([]);
+type Story = {
+    story: CompleteStoryResponse,
+    onNewStory: (event: React.MouseEvent<HTMLElement>) => void
+}
+
+type CompleteStoryResponse = {
+    id: string,
+    title: string,
+    session_id: string,
+    created_at: Date,
+    root_node: CompleteStoryNodeResponse,
+    all_nodes: {
+        [key: string]: CompleteStoryNodeResponse
+    }
+}
+
+type CompleteStoryNodeResponse = {
+    id: string,
+    content: string,
+    is_ending: boolean,
+    is_winning_ending: boolean,
+    options: [{
+        text: string,
+        node_id: string
+    }]
+}
+
+function StoryGame({story, onNewStory} : Story) {
+    const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
+    const [currentNode, setCurrentNode] = useState<CompleteStoryNodeResponse | null>(null);
+    const [options, setOptions] = useState<CompleteStoryNodeResponse["options"] | []>([]);
     const [isEnding, setIsEnding] = useState(false);
     const [isWinningEnding, setIsWinningEnding] = useState(false);
 
@@ -31,7 +58,7 @@ function StoryGame({story, onNewStory}) {
     }, [currentNodeId, story]);
 
 
-    const chooseOption = (optionId) => {
+    const chooseOption = (optionId: string) => {
         setCurrentNodeId(optionId);
     }
 
