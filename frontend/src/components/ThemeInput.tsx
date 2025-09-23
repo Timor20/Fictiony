@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type Theme = {
-    onSubmit: any
+    onSubmit: (theme: string) => Promise<void>
 }
 
 function ThemeInput({onSubmit}: Theme) {
