@@ -18,7 +18,7 @@ function StoryGenerator() {
         let pollInterval: number;
 
         if (jobId && jobStatus === "processing") {
-            pollInterval = setInterval(() => {
+            pollInterval = window.setInterval(() => {
                 pollJobStatus(jobId)
             }, 5000)
         }
