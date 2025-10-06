@@ -1,1 +1,1 @@
-export const API_BASE_URL: string = "/api";
+export const API_BASE_URL: string = "/choreo-apis/fictiony/backend/v1/api";
