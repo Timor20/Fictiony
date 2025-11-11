@@ -1,12 +1,12 @@
 # Fictiony
 
-Fictiony is an interactive story-generation application that lets users enter a theme and receive an AI‑generated branching narrative — similar to a multiple‑choice adventure novel. Each story includes several decision points and concludes with one winning ending.
+Fictiony is an interactive story-generation application that lets users enter a theme and receive an AI‑generated branching narrative — similar to a multiple‑choice adventure novel. Each story includes several decision points and concludes with at least one winning ending.
 
 ## 🚀 Features
 
 * Generate fully AI‑driven interactive stories based on a custom theme
 * Multiple branching choices at each step
-* One definitive winning ending per story
+* At least one winning ending per story
 * Session-based experience (no authentication required)
 * Modern, fast, and lightweight full‑stack architecture
 
@@ -42,7 +42,7 @@ Fictiony is an interactive story-generation application that lets users enter a 
    * A story introduction
    * Multiple decision points
    * Several branching paths
-   * One winning ending
+   * Winning and losing endings
 4. The frontend renders choices using React, allowing the user to navigate the narrative.
 5. Session handling is used instead of authentication, keeping the experience lightweight.
 
